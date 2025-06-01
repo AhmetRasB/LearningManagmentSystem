@@ -20,6 +20,7 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:instructor'],
 Route::group(['middleware' => ['auth:web', 'verified', 'check_role:student'], 'prefix' => 'student', 'as' => 'student.'], function() {
    Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
 });
+
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
