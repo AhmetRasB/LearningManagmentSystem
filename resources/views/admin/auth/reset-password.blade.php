@@ -58,6 +58,7 @@
     <link href="{{ asset('admin/assets/dist/css/tabler-payments.min.css?1692870487') }}" rel="stylesheet"/>
     <link href="{{ asset('admin/assets/dist/css/tabler-vendors.min.css?1692870487') }}" rel="stylesheet"/>
     <link href="{{ asset('admin/assets/dist/css/demo.min.css?1692870487') }}" rel="stylesheet"/>
+    
     <style>
       @import url('https://rsms.me/inter/inter.css');
       :root {
@@ -67,6 +68,8 @@
       	font-feature-settings: "cv03", "cv04", "cv11";
       }
     </style>
+    @vite(['resources/js/admin/login.js'])
+    
   </head>
   <body  class=" d-flex flex-column">
     <script src="./dist/js/demo-theme.min.js?1692870487"></script>
@@ -88,20 +91,26 @@
             </div>
             <div class="mb-3">
               <label class="form-label">Password</label>
-              <input type="password" class="form-control" placeholder="Enter Password" id="password" name="password" required autocomplete="new-password">
-            </div>
-             <x-input-error :messages="$errors->get('password')" class="mt-2" />
-            <div class="mb-3">
-              <label class="form-label">Confirm Password</label>
               <div class="input-group input-group-flat">
-                <input type="password" class="form-control"  placeholder="Enter Password"  autocomplete="off" id="password_confirmation" name="password_confirmation" required>
-                <span class="input-group-text">
-                  <a href="#" class="link-secondary" title="Show password" data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
+                <input type="password" class="form-control password" placeholder="Enter Password" id="password" name="password" required autocomplete="new-password">
+                <span class="input-group-text toggle-password">
+                  <a href="javascript:;" class="link-secondary" title="Show password" data-bs-toggle="tooltip">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
                   </a>
                 </span>
-            
+              </div>
+            </div>
+<x-input-error :messages="$errors->get('password')" class="mt-2" />
 
+            <div class="mb-3">
+              <label class="form-label">Confirm Password</label>
+              <div class="input-group input-group-flat">
+                <input type="password" class="form-control confirm-password" placeholder="Enter Password" autocomplete="off" id="password_confirmation" name="password_confirmation" required>
+                <span class="input-group-text confirm-password-toggle">
+                  <a href="javascript:;" class="link-secondary" title="Show password" data-bs-toggle="tooltip">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+                  </a>
+                </span>
               </div>
             </div>
 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
@@ -119,5 +128,6 @@
     <!-- Tabler Core -->
     <script src="{{ asset('admin/assets/dist/js/tabler.min.js?1692870487') }}" defer></script>
     <script src="{{ asset('admin/assets/dist/js/demo.min.js?1692870487') }}" defer></script>
+    <script src="{{ asset('admin/assets/dist/js/jquery-3.6.0.min.js') }}"></script>
   </body>
 </html>

@@ -21,9 +21,7 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:student'], 'p
    Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
 });
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
+
 
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
