@@ -228,7 +228,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="admin" href="#">
+                        <a class="admin" href="{{ route('admin.login') }}">
                             <span>
                                 <img src="images/user_icon_black.png" alt="user" class="img-fluid">
                             </span>
@@ -236,7 +236,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="common_btn" href="#">Sign Up</a>
+                        <a class="common_btn" href="{{ route('login') }}">Sign In</a>
                     </li>
                 </ul>
             </div>
