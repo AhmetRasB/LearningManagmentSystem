@@ -52,6 +52,6 @@ class RegisteredUserController extends Controller
             return redirect()->intended(route('instructor.dashboard', absolute: false));
         }
        
-
+        return redirect()->intended(route('home', absolute: false));
     }
 }
