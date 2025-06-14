@@ -177,7 +177,7 @@
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                             aria-labelledby="pills-home-tab" tabindex="0">
-                            <form action="{{ route('register') }}" method="POST">
+                            <form action="{{ route('register', ['type' => 'student']) }}" method="POST">
                                 @csrf
                                 <h2>Sign Up<span>!</span></h2>
                                 <p class="new_user">Already have an account? <a href="{{ route('login') }}">Sign In</a></p>
@@ -233,9 +233,9 @@
 
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                             aria-labelledby="pills-profile-tab" tabindex="0">
-                            <form action="{{ route('register') }}" method="POST">
+                            <form action="{{ route('register' , ['type' => 'instructor']) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <h2>Sign Up<span>!</span></h2>
+                                <h2>Instructor Sign Up<span>!</span></h2>
                                 <p class="new_user">Already have an account? <a href="{{ route('login') }}">Sign In</a></p>
                                 <div class="row">
                                     <div class="col-xl-12">
@@ -250,6 +250,13 @@
                                             <label>Your email</label>
                                              <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                             <input type="email" placeholder="Your email" name="email" value="{{ old('email') }}" required>
+                                        </div>
+                                    </div>
+                                     <div class="col-xl-12">
+                                        <div class="wsus__login_form_input">
+                                            <label>Documents (Education/Certificates)</label>
+                                             <x-input-error :messages="$errors->get('document')" class="mt-2" />
+                                            <input type="file" placeholder="Upload your document" name="document" value="{{ old('document') }}" >
                                         </div>
                                     </div>
                                     <div class="col-xl-12">

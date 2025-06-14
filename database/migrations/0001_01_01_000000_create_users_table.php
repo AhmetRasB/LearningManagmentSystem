@@ -12,12 +12,24 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
+            $table->enum('role', ['instructor', 'student']);
             $table->id();
+            $table->string('avatar')->default('/default-files/avatar.png');
+            $table->string('headline')->nullable();
             $table->string('name');
             $table->string('email')->unique();
+            $table->text('bio')->nullable();
+            $table->enum('gender' , ['male', 'female'])->nullable();
+            $table->string('document')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', ['instructor', 'student']);
+            $table->string('facebook')->nullable();
+            $table->string('x')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('website')->nullable();
+            $table->string('github')->nullable();
+            $table->enum('approve_status', ['pending', 'approved', 'rejected'])->default('pending');
+            $table->enum('login_as', ['instructor', 'student'])->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
